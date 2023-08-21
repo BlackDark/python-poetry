@@ -38,10 +38,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           tags: |
-            docker.io/blackdark93/python-poetry:${{ env.POETRY_VERSION }}
-            docker.io/blackdark93/python-poetry:latest
+            docker.io/blackdark93/python-poetry:${{ env.POETRY_VERSION }}-py${{ env.PYTHON_VERSION }}
           platforms: linux/amd64,linux/ppc64le,linux/arm64
-          build-args: POETRY_VERSION=${{ env.POETRY_VERSION }}
+          build-args: |
+            POETRY_VERSION=${{ env.POETRY_VERSION }}
+            PYTHON_VERSION=${{ env.PYTHON_VERSION }}
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
