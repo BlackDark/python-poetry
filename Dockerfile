@@ -19,3 +19,5 @@ RUN micromamba install -y -n base -c conda-forge \
     && micromamba clean --all --yes \
     && rm -rf /opt/conda/pkgs
 ENV PATH=/opt/conda/bin:$PATH
+# Temporary for testing
+RUN mkdir -p $HOME/.cache/pypoetry/cache $HOME/.cache/pypoetry/artifacts $HOME/.cache/pypoetry/virtualenvs
